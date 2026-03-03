@@ -11,7 +11,7 @@ const accountSchema = new mongoose.Schema({
         type: String,
         enum: {
             values: ["ACTIVE", "FROZEN", "CLOSED"],
-            message: 'status must be either "ACTIVE","FROZEN" or "CLOSED"',
+            message: 'Status must be either "ACTIVE","FROZEN" or "CLOSED"',
             default: "ACTIVE"
 
         }
@@ -20,6 +20,7 @@ const accountSchema = new mongoose.Schema({
         type: String,
         required: [true, "currency is required for creation an account"],
         default: "INR",
+        uppercase: true
     }
 }, { timestamps: true });
 
