@@ -1,6 +1,11 @@
 import jwt from "jsonwebtoken";
 import { User } from "../models/user.model.js";
 
+/**
+ * - Auth middlware check whether token is valid 
+ * - if not it denys futher access
+ * - also save user to req.user
+ */
 export const authMiddleware = async function (req,res,next){
     const token = req.cookies["access_token"] || req.headers.authorization?.split(" ")[1];
 
